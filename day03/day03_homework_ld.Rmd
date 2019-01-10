@@ -1,0 +1,61 @@
+---
+title: "Day 3 Homework"
+output: html_document
+---
+
+1. Identify a column in your data that *should* be a factor (whether it is or not). Check to see whether R is already treating it as a factor, and if not, convert it into a factor.
+
+```{r}
+
+durdisc.group <- durdisc.data$Experimental.Group
+is.factor(durdisc.group)
+durdisc.group.factor <- as.factor(durdisc.group)
+
+```
+
+2. What are the levels of the factor? How many occurrences of each level are there in the data?
+   
+```{r}
+
+levels(durdisc.group.factor)
+table(durdisc.group.factor) # builds a contingency table
+
+```
+
+3. Create a new column that is a numeric "version" of the factor column, using `as.numeric()`. Use `xtabs()` to see how the values of these columns line up.
+
+```{r}
+
+durdisc.group.numeric <- as.numeric(durdisc.group.factor)
+xtabs(durdisc.group.numeric ~ durdisc.group.factor) # im getting an answer but it seems wrong
+
+```
+
+4. Create another column that is a copy of the factor column. Now, recode this new column so that the factor levels have new names. 
+  (e.g., if you have a factor with levels "A" and "B", you could make a new column that had "condition A" and "condition B" as the level names instead)
+
+```{r}
+
+durdisc.group.factor2 < - levels(durdisc.group.factor)[1] <- "ActiveCtrl"
+durdisc.group.factor2 < - levels(durdisc.group.factor)[2] <- "ExpTraining"
+
+##this didn't seem to work. where was i supposed to add the column? to my data.frame?
+
+```
+
+5. Change the order of the levels in your new factor, using three different methods:
+  a. `relevel()`
+  b. `reorder()`
+  c. `factor()`
+
+```{r}
+
+#using my old factor because the prior one didn't work
+
+relevel(durdisc.group.factor, ref = "Training")
+with(durdisc.group.factor, reorder(??)) ## i can't figure out what to put in here
+as.ordered(durdisc.group.factor) # ack not working either
+
+```
+
+

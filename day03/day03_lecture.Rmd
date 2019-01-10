@@ -50,13 +50,13 @@ More documentation on Markdown and R Markdown:
 x <- rnorm(100, mean = 0, sd = 2)
 y <- rnorm(100, mean = 1, sd = 1)
 ttest.results <- t.test(x, y)
-ttest.results
+#ttest.results
 
 # what if ttest.results took minutes/hours to compute?
 save(ttest.results, file = "big important object.RData")
-ttest.results
-rm(ttest.results)
-ttest.results
+#ttest.results
+#rm(ttest.results)
+#ttest.results
 load("big important object.RData")
 ttest.results
 
@@ -336,7 +336,7 @@ is.na(NA)
 
 ## Generic functions
 ```{r}
-scottdata <- read.csv("scottdata/CognitionPaperModifiedData.csv")
+scottdata <- read.csv("/Users/lindsayadevries/Desktop/RBootcamp/ladevries_repo/scottdata/CognitionPaperFinalData.csv")
 summary(scottdata)
 summary(scottdata$Corpus)
 example.lm <- lm(HiSegType ~ LoSegType, data = scottdata)
