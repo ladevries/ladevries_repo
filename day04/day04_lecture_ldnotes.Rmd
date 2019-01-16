@@ -189,6 +189,7 @@ summary(mysleep)
 ```{r}
 
 xtabs(~group +group2, data = mysleep)
+xtabs(~sleeplevel + extra, data = mysleep)
 
 ```
 
@@ -197,7 +198,7 @@ xtabs(~group +group2, data = mysleep)
 # NAs, NULLs
 
 ## NAs
-  - missing data
+  - missing data, whereas NULLs mean it doesn't exist
   - can be a huge pain
   - hugely important to handle properly!
   - no universal "handle NAs" or "ignore NAs" argument
@@ -207,6 +208,8 @@ xtabs(~group +group2, data = mysleep)
   - no universal "deal with NAs" argument
   
 ```{r}
+
+
 
 ```
 
@@ -223,6 +226,9 @@ xtabs(~group +group2, data = mysleep)
   - helpful to be able to identify, locate them
 
 ```{r}
+
+#dividing by zero, etc will return an Inf
+#dividing by a negative sq root will return a NaN 
 
 ```
 
